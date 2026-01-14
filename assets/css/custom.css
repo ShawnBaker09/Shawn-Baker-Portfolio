@@ -1,0 +1,148 @@
+/* Custom styles for Shawn Bakers Portfolio */
+
+/* Full-bleed banner background with hover-reveal */
+.banner-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  --x: 50%;
+  --y: 50%;
+  --r: 0px;
+}
+
+.banner-bg img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  object-position: center top; /* center face at top */
+}
+
+/* Slight dim/scale on base when active for emphasis */
+.banner-bg.active .base-image { transform: scale(1.02); filter: saturate(0.95) brightness(0.95); }
+
+/* Make header fixed at top */
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+  background: rgba(20,24,28,0.75);
+  backdrop-filter: blur(6px);
+}
+
+/* Add top padding so content isn't hidden behind fixed header */
+/* Dark color scheme variables */
+:root {
+  --bg: #0f1316;
+  --panel: #121518;
+  --fg: #e6eef3;
+  --muted: rgba(230,238,243,0.7);
+  --accent: #21b2a6;
+}
+
+body { padding-top: 4.5rem; font-family: 'Open Sans', Helvetica, sans-serif; background: var(--bg); color: var(--fg); }
+
+/* Banner heading and socials */
+#banner { position: relative; min-height: 62vh; }
+#banner .inner { max-width: 1040px; margin: 0 auto; position: relative; z-index: 2; padding: 6rem 2rem 4rem; }
+#banner h2 { margin-top: 0.25rem; letter-spacing: 0.06em; font-weight: 800; color: #fff; }
+.socials { text-align: center; margin-top: 0.75rem; }
+.socials a { margin: 0 0.5rem; color: #fff; opacity: 0.95; font-size: 1.2rem; }
+
+/* Certifications grid with thumbnails */
+.cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); justify-content: center; gap: 1.1rem; margin-top: 1.25rem; align-items: start; }
+
+@media screen and (max-width: 900px) {
+  .cert-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media screen and (max-width: 600px) {
+  .cert-grid { grid-template-columns: 1fr; }
+}
+
+/* About section grid boxes styling */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* Full-bleed section header bar for About and Certifications */
+header.major {
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  position: relative;
+  background: linear-gradient(90deg, rgba(8,10,12,0.96), rgba(18,22,26,0.96));
+  padding: 0.8rem 0;
+  margin: 0 0 1rem 0;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.45);
+  z-index: 4;
+}
+
+header.major h2 {
+  margin: 0;
+  text-align: center;
+  color: var(--fg);
+  font-size: 1.4rem;
+  letter-spacing: 0.06em;
+  font-weight: 800;
+}
+
+.about-box {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.04));
+  border-left: 4px solid var(--accent);
+  padding: 1rem 1.1rem;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.45);
+}
+
+.about-box h3 { margin: 0 0 0.6rem 0; color: var(--fg); }
+.about-box p, .about-box ul { color: var(--muted); margin: 0 0 0.5rem 0; }
+.about-box ul { padding-left: 1.05rem; }
+
+@media screen and (max-width: 900px) {
+  .about-grid { grid-template-columns: 1fr; }
+}
+.cert { background: var(--panel); padding: 0.5rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.03); }
+.cert a { display: block; color: var(--fg); text-decoration: none; }
+.cert object.cert-preview { width: 100%; height: 160px; border: none; display: block; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02)); border-radius: 4px; overflow: hidden; }
+.cert .pdf-fallback { display: flex; align-items: center; justify-content: center; height: 160px; color: var(--muted); font-weight: 700; }
+.cert h3 { margin: 0.5rem 0 0 0; font-size: 1rem; color: var(--fg); }
+
+/* Responsive tweaks */
+@media screen and (max-width: 480px) {
+  .banner-bg.active { --r: 40px; }
+  .cert img { height: 110px; }
+  body { padding-top: 4rem; }
+  #banner .inner { padding: 4.25rem 1rem 2rem; }
+}
+
+/* Flow pulse effect (radial) centered at mouse coords stored in --x/--y */
+/* Flow overlay removed as requested */
+
+/* Certificates: place name above the preview, larger cards, hover to hide text and enlarge preview */
+
+.cert { display: grid; grid-template-rows: auto 1fr; align-items: start; gap: 0.6rem; min-height: 0; overflow: hidden; background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(0,0,0,0.03)); border-radius: 10px; padding: 0.7rem; box-shadow: 0 10px 30px rgba(0,0,0,0.45); border-left: 4px solid var(--accent); width: 100%; max-width: 340px; box-sizing: border-box; }
+.cert h3 { margin: 0 0 0.4rem 0; transition: opacity 240ms ease, max-height 260ms ease, margin 260ms ease; z-index: 3; font-size: 1.02rem; color: var(--fg); max-height: 56px; overflow: hidden; }
+.cert-thumb { align-self: stretch; min-height: 160px; overflow: hidden; border-radius: 8px; background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.06)); display:flex; align-items:center; justify-content:center; }
+.cert-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 360ms cubic-bezier(.2,.9,.2,1); }
+
+/* On hover, collapse the title (space removed) and let the image expand smoothly */
+.cert:hover h3 { opacity: 0; max-height: 0; margin: 0; }
+.cert:hover .cert-thumb img { transform: scale(1.12); }
+
+/* Box shadow for previews */
+.cert-thumb, .cert-thumb img { box-shadow: 0 8px 26px rgba(0,0,0,0.45); }
+
+/* Fallback when no thumbnail available */
+.cert-thumb.no-thumb { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06)); color: var(--muted); font-weight:700; }
+.cert-thumb.no-thumb::after { content: "No preview"; display:block; padding: 0.75rem; }
+
+

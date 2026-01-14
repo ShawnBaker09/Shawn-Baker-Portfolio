@@ -1,0 +1,179 @@
+:root{
+	/* Made by Bubbabaker2009 */
+	--bg-0: #030417; /* very deep navy */
+	--bg-1: #07122a; /* deep blue */
+	--panel: linear-gradient(180deg,#081226 0%, #051026 100%);
+	--muted: #9fb6c6;
+	--text: #e8fbff; /* stronger contrast */
+	--accent: #00f5d4; /* neon teal */
+	--accent-2: #9b6bff; /* neon purple */
+	--neon-green: #7eff6b;
+	--glass: rgba(255,255,255,0.03);
+}
+
+/* Page background */
+body{
+	background: radial-gradient(1200px 600px at 10% 10%, rgba(42,70,110,0.12), transparent),
+							linear-gradient(180deg,var(--bg-1),var(--bg-0));
+	color:var(--text);
+}
+
+/* Panels and cards */
+.inner, .about-box, .cert, .social-deck .s-card{
+	background: var(--panel);
+	border-color: rgba(0,245,212,0.06);
+}
+
+.about-box{box-shadow:0 10px 30px rgba(7,18,34,0.6), 0 0 24px rgba(155,107,255,0.02)}
+
+/* Accent for links/buttons */
+a, .resume-btn, .copy-btn{ color:var(--accent); }
+
+.resume-btn{ border-color: rgba(0,245,212,0.08); background:linear-gradient(180deg, rgba(0,245,212,0.03), transparent); }
+
+/* Neon headings */
+header.major h2, h3{ text-shadow:0 6px 18px rgba(0,245,212,0.06), 0 0 30px rgba(155,107,255,0.03); color:var(--text)}
+
+/* Social cards glow */
+.social-deck .s-card{ box-shadow:0 14px 46px rgba(2,6,23,0.6); border:1px solid rgba(0,245,212,0.04)}
+.social-deck .s-card:hover{ box-shadow:0 28px 84px rgba(0,245,212,0.12), 0 6px 20px rgba(155,107,255,0.06); transform:translateY(-6px) scale(1.06) }
+
+/* Skill fill gradient using accents */
+.skill-fill{ background:linear-gradient(90deg,var(--accent),var(--accent-2)); box-shadow:0 8px 30px rgba(0,245,212,0.06) inset }
+
+/* Certifications */
+.cert{ border-radius:10px; transition:transform .28s ease, box-shadow .28s ease; }
+.cert:hover{ transform:translateY(-8px); box-shadow:0 24px 60px rgba(11,20,40,0.7), 0 0 38px rgba(0,245,212,0.06) }
+
+/* Toast */
+#toast{ background:linear-gradient(180deg, rgba(2,6,23,0.92), rgba(8,18,34,0.92)); border:1px solid rgba(0,245,212,0.06) }
+
+/* Terminal tweaks when embedded */
+#footer-terminal #cmd-terminal{ background: linear-gradient(180deg, rgba(3,7,15,0.85), rgba(2,6,23,0.85)); border:1px solid rgba(0,245,212,0.06); box-shadow:none }
+#footer-terminal #cmd-terminal #cmd-prompt{ color:var(--neon-green) }
+#footer-terminal #cmd-terminal .cmd-line{ color:var(--muted) }
+
+/* Links and small UI elements */
+.btn, .resume-btn.small{ box-shadow:0 8px 24px rgba(0,0,0,0.55); }
+
+/* Header bar subtle grey background under menu */
+#header{ background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.00)); border-bottom:1px solid rgba(255,255,255,0.02); }
+
+/* Style the menu panel links and highlight the Home link */
+#menu .links{ padding: .6rem 0; }
+#menu .links a{ display:block; padding:.6rem 1rem; border-radius:8px; color:var(--text); }
+#menu .links a:hover{ background: rgba(200,200,200,0.06); color:var(--text); }
+
+/* Give the Home menu item a muted grey panel behind it */
+#menu .links li:first-child a{ background: rgba(200,200,200,0.08); }
+
+
+/* Subtle animated neon pulse for accent elements */
+.pulse-accent{ animation: glowPulse 2.8s ease-in-out infinite }
+@keyframes glowPulse{ 0%{ box-shadow:0 6px 18px rgba(0,245,212,0.04)}50%{ box-shadow:0 16px 48px rgba(0,245,212,0.08)}100%{ box-shadow:0 6px 18px rgba(0,245,212,0.04)} }
+
+/* Reduced motion fallback */
+
+@media (prefers-reduced-motion: reduce){ *{ transition:none!important; animation:none!important } }
+
+/* Focus outlines and high-contrast helpers */
+:focus{ outline: none }
+a:focus, .btn:focus, .resume-btn:focus, .copy-btn:focus, .s-card:focus, #cmd-input:focus{
+	box-shadow: 0 0 0 3px rgba(0,245,212,0.14), 0 8px 28px rgba(2,6,23,0.6);
+	border-radius:6px;
+}
+
+/* Visible focus for keyboard users */
+*:focus-visible{ outline: 2px solid var(--accent-2); outline-offset:3px }
+
+/* Improve contrast for small text */
+.boot-log, .skill-percent, .cert h3{ color: var(--muted); opacity:0.95 }
+
+/* Section background gradients and semi-transparent panels */
+section{ position:relative; z-index:1 }
+section::before{
+	content:''; position:absolute; inset:0; z-index:-1; pointer-events:none;
+	background: linear-gradient(180deg, rgba(3,8,20,0.02), rgba(3,8,20,0.04));
+}
+
+/* Subtle alternating gradients between sections */
+section:nth-of-type(odd)::before{ background: linear-gradient(180deg, rgba(7,18,34,0.02), rgba(7,18,34,0.04)); }
+section:nth-of-type(even)::before{ background: linear-gradient(180deg, rgba(12,24,44,0.03), rgba(8,18,34,0.05)); }
+
+/* Semi-transparent panel look */
+.inner, .about-box, .cert, .social-deck .s-card{
+	background: linear-gradient(180deg, rgba(6,10,18,0.55), rgba(6,10,18,0.42));
+	backdrop-filter: blur(6px) saturate(120%);
+	-webkit-backdrop-filter: blur(6px) saturate(120%);
+	border:1px solid rgba(255,255,255,0.04);
+}
+
+/* Add a soft divider and lift for panels */
+.about-box, .cert{ box-shadow: 0 8px 28px rgba(2,8,20,0.6); border-radius:10px }
+
+/* Slight gradient separators between major sections */
+hr.section-sep{ border:0; height:1px; margin:2.2rem 0; background:linear-gradient(90deg, rgba(155,107,255,0.06), rgba(0,245,212,0.06)); }
+
+
+/* Light-blue pulse on hover for primary interactive elements */
+@keyframes pulseBlue {
+	0% { box-shadow: 0 0 0 0 rgba(122,215,255,0.0); }
+	50% { box-shadow: 0 0 24px 6px rgba(122,215,255,0.12); }
+	100% { box-shadow: 0 0 0 0 rgba(122,215,255,0.0); }
+}
+
+.btn:hover, .copy-btn:hover, .resume-btn:hover, .resume-btn.small:hover {
+	transform: translateY(-3px);
+	filter: saturate(1.05) brightness(1.02);
+	box-shadow: 0 10px 30px rgba(122,215,255,0.06), 0 0 0 3px rgba(122,215,255,0.03);
+	animation: pulseBlue 1.8s ease-in-out infinite;
+}
+
+/* Keep focus visible and consistent with hover state */
+.btn:focus, .copy-btn:focus, .resume-btn:focus, .resume-btn.small:focus {
+	outline: 2px solid rgba(122,215,255,0.18);
+	outline-offset: 3px;
+}
+
+/* Mobile / small-screen adjustments */
+@media (max-width: 900px){
+	/* Stack about grid to single column */
+	.about-grid.three-cols.full-width, .about-grid.two-cols{ grid-template-columns: 1fr !important; }
+
+	/* Social deck: reduce height and card sizes, make tappable */
+	.social-deck{ height:260px !important; max-width:100%; }
+	.social-deck .s-card{ width:110px !important; height:160px !important; border-radius:8px !important; }
+	.social-deck .s-card:nth-child(1){ --base-transform: translate(-50%,-50%) translateX(-140px) rotate(-12deg) }
+	.social-deck .s-card:nth-child(2){ --base-transform: translate(-50%,-50%) translateX(-90px) rotate(-8deg) }
+	.social-deck .s-card:nth-child(3){ --base-transform: translate(-50%,-50%) translateX(-45px) rotate(-4deg) }
+	.social-deck .s-card:nth-child(4){ --base-transform: translate(-50%,-50%) translateX(0px) rotate(0deg) }
+	.social-deck .s-card:nth-child(5){ --base-transform: translate(-50%,-50%) translateX(45px) rotate(4deg) }
+	.social-deck .s-card:nth-child(6){ --base-transform: translate(-50%,-50%) translateX(90px) rotate(8deg) }
+	.social-deck .s-card:nth-child(7){ --base-transform: translate(-50%,-50%) translateX(140px) rotate(12deg) }
+
+	/* Wave separators smaller on mobile */
+	.section-wave{ height:44px; }
+	.section-wave svg{ width:140%; }
+
+	/* Reduce padding, increase tappable areas */
+	.inner{ padding: .9rem !important; }
+	.btn, .copy-btn, .resume-btn.small{ padding: .6rem .9rem; font-size:15px }
+
+	/* Terminal: embed full-width and increase height slightly for mobile */
+	#footer-terminal #cmd-terminal{ height:280px !important; font-size:14px !important }
+	#cmd-terminal{ width:100% !important; right:0 !important; left:0 !important }
+
+	/* Hide decorative shadows for performance */
+	.social-deck .s-card, .about-box, .cert{ box-shadow:none }
+}
+
+@media (max-width: 480px){
+	/* Tighten further for very small screens */
+	.social-deck{ height:200px }
+	.social-deck .s-card{ width:90px; height:130px }
+	.section-wave{ height:34px }
+	#footer-terminal #cmd-terminal{ height:240px }
+	#made-by-badge{ display:none }
+}
+
+
