@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Shawn Baker — Resume</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#041126;
+      --panel:#071426;
+      --muted:rgba(180,210,220,0.75);
+      --text:#e9ffff;
+      --accent:#6ef3d1;
+      --accent-2:#8f6bff;
+    }
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial; color:var(--text);margin:0;padding:2rem;background:radial-gradient(800px 400px at 10% 10%, rgba(110,243,209,0.03), transparent), linear-gradient(180deg,#02101a 0%, var(--bg) 100%)}
+    .sheet{max-width:900px;margin:0 auto;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:26px;border-radius:14px;box-shadow:0 24px 80px rgba(2,6,23,0.75);border:1px solid rgba(255,255,255,0.03);overflow:hidden}
+    header{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}
+    .identity{display:flex;gap:14px;align-items:center}
+    .avatar{width:76px;height:76px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:800;color:#012;background-blend-mode:screen}
+    h1{font-size:28px;margin:0;letter-spacing:0.2px}
+    .tagline{color:var(--muted);font-size:13px;margin-top:6px}
+    .contact{font-size:13px;color:var(--muted);line-height:1.45;text-align:right}
+    section{margin-top:20px}
+    .two-cols{display:flex;gap:24px}
+    .left{flex:2}
+    .right{flex:1}
+    h3{margin:0 0 10px 0;font-size:12px;color:var(--accent);text-transform:uppercase;letter-spacing:0.08em}
+    p, li{color:var(--muted)}
+    ul{margin:0;padding-left:1.15rem}
+    li{margin-bottom:6px}
+    .skill{display:flex;flex-direction:column;gap:6px;margin-bottom:8px}
+    .skill .label{display:flex;justify-content:space-between;font-size:13px;color:var(--muted)}
+    .meter{height:10px;background:rgba(255,255,255,0.04);border-radius:10px;overflow:hidden}
+    .meter > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));width:0%;transition:width 1.2s cubic-bezier(.2,.9,.3,1)}
+    .cert-list, .proj-list{display:grid;gap:8px}
+    .print-btn{display:inline-block;padding:.45rem .8rem;background:transparent;color:var(--accent);border-radius:8px;text-decoration:none;font-weight:700;border:1px solid rgba(0,245,212,0.12);cursor:pointer}
+    .meta{font-size:13px;color:var(--muted)}
+    a{color:var(--accent)}
+
+    /* Cards */
+    .project-card, .cert-list div{padding:.5rem;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);border:1px solid rgba(255,255,255,0.02)}
+
+    /* subtle animations */
+    .sheet{transform:translateY(6px);opacity:0;animation:sheetIn .7s ease forwards}
+    @keyframes sheetIn{to{transform:none;opacity:1}}
+
+    /* Responsive */
+    @media (max-width:820px){
+      .two-cols{flex-direction:column}
+      .contact{text-align:left}
+      .avatar{width:64px;height:64px}
+    }
+
+    /* Print: A4 single-page condensed */
+    @page { size: A4; margin: 10mm; }
+    @media print{
+      html,body{width:210mm;height:297mm;margin:0;padding:0}
+      body{background:#fff;color:#000}
+      .sheet{background:#fff;color:#000;box-shadow:none;border-radius:0;padding:6mm;margin:0 auto;border:0;max-width:190mm}
+      a{color:#000}
+      .print-only{display:none}
+
+      /* Reduce typography/spacing to fit a single page */
+      h1{font-size:18px}
+      h3{font-size:11px}
+      .contact, .meta, p, li, .skill{font-size:11px;line-height:1.12;color:#222}
+      .two-cols{gap:8px}
+      .left{flex:2}
+      .right{flex:1}
+      .cert-list, .proj-list{gap:4px}
+      .project-card, .cert-list div{padding:.25rem}
+
+      /* Hide interactive elements not useful on print */
+      .print-btn{display:none}
+      footer{display:none}
+
+      /* Avoid page breaks inside the main container */
+      .sheet, .two-cols, .left, .right { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sheet">
+    <header>
+      <div class="identity">
+        <div class="avatar">SB</div>
+        <div>
+          <h1>Shawn Baker</h1>
+          <div class="tagline">Aspiring IT professional • Maker • Learner</div>
+          <div class="meta" style="margin-top:6px">Age: 16</div>
+        </div>
+      </div>
+      <div style="text-align:right">
+        <div class="contact">📞 814-483-9612<br>✉️ <a href="mailto:Bubbabaker2009@gmail.com">Bubbabaker2009@gmail.com</a><br>📍 312 Myers Avenue, Meyersdale, PA</div>
+        <div style="margin-top:10px"><button class="print-btn" onclick="window.print()">Print / Save PDF</button></div>
+      </div>
+    </header>
+
+    <section class="two-cols">
+      <div class="left">
+        <h3>Profile</h3>
+        <p>Motivated young technologist with hands-on IT experience and practical work experience. Regularly learns and completes online certifications. Practical experience includes mowing yards (self-employment) and IT work at Meyersdale High School.</p>
+
+        <h3 style="margin-top:14px">Experience</h3>
+        <ul>
+          <li><strong>2022 — Present</strong> — Mowing yards and running small maintenance jobs to earn income.</li>
+          <li><strong>Summer 2025</strong> — IT support work at Meyersdale High School (hardware, basic troubleshooting).</li>
+        </ul>
+
+        <h3 style="margin-top:14px">Skills</h3>
+        <div class="skill">
+          <div class="label">HTML <span>55%</span></div>
+          <div class="meter" aria-hidden="true"><i data-value="55"></i></div>
+        </div>
+        <div class="skill">
+          <div class="label">Python <span>52%</span></div>
+          <div class="meter" aria-hidden="true"><i data-value="52"></i></div>
+        </div>
+        <div class="skill">
+          <div class="label">JavaScript <span>48%</span></div>
+          <div class="meter" aria-hidden="true"><i data-value="48"></i></div>
+        </div>
+        <div class="skill">
+          <div class="label">Lua <span>21%</span></div>
+          <div class="meter" aria-hidden="true"><i data-value="21"></i></div>
+        </div>
+
+        <h3 style="margin-top:14px">Projects</h3>
+        <div class="proj-list">
+          <div class="project-card">
+            <div style="display:flex;align-items:center;gap:.6rem">
+              <div style="font-size:20px">📦</div>
+              <div style="flex:1">
+                <strong>Mln_admin</strong>
+                <div class="meta">Admin tools and ML helpers</div>
+              </div>
+              <div style="margin-left:.5rem"><a class="print-btn" href="https://github.com/ShawnBaker09/Mln_admin" target="_blank">View</a></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <aside class="right">
+        <h3>Education</h3>
+        <div class="meta">Meyersdale Area School District (2024–2027)<br>Somerset County Technology Center (2023–2027)</div>
+
+        <h3 style="margin-top:14px">Certifications</h3>
+        <div class="cert-list">
+          <div>🎓 PC Pro</div>
+          <div>🩺 First Aid — Medical Emergencies</div>
+          <div>💚 First Aid — Mental Wellness</div>
+          <div>🧠 Critical Thinking</div>
+          <div>⏱️ Time Management</div>
+          <div>💺 Ergonomics</div>
+          <div>🗣️ Communication Skills</div>
+          <div>🛡️ OSHA 10-Hour General Industry</div>
+          <div>🔐 Cybersecurity Essentials for Work</div>
+          <div>🏭 Bambu Lab Academy — Bambu Studio</div>
+        </div>
+
+        <h3 style="margin-top:14px">Social / Links</h3>
+        <div class="meta">
+          LinkedIn: https://www.linkedin.com/in/bubba-the-mellongod-ba22743a6/<br>
+          Facebook: https://www.facebook.com/share/1LbM3Fc1TZ/<br>
+          Instagram: https://www.instagram.com/bubbabaker09<br>
+          GitHub: https://github.com/ShawnBaker09
+        </div>
+
+      </aside>
+    </section>
+
+    <footer style="margin-top:18px;font-size:13px;color:var(--muted)">
+      <div class="meta">Resume generated from site data — contact to request edits or reordering.</div>
+    </footer>
+  </div>
+  <script>
+    // animate skill meters on load
+    document.addEventListener('DOMContentLoaded', function(){
+      const bars = document.querySelectorAll('.meter > i');
+      bars.forEach(b=>{
+        const v = parseInt(b.dataset.value || 0, 10);
+        // clamp
+        const w = Math.max(4, Math.min(100, v));
+        // tiny delay for stagger
+        setTimeout(()=> b.style.width = w + '%', 120);
+      });
+    });
+  </script>
+</body>
+</html>
