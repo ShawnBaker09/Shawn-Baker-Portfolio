@@ -1,189 +1,486 @@
-:root{
-	/* Made by Bubbabaker2009 */
-	--bg-0: #030417; /* very deep navy */
-	--bg-1: #07122a; /* deep blue */
-	--panel: linear-gradient(180deg,#081226 0%, #051026 100%);
-	--muted: #9fb6c6;
-	--text: #e8fbff; /* stronger contrast */
-	--accent: #00f5d4; /* neon teal */
-	--accent-2: #9b6bff; /* neon purple */
-	--neon-green: #7eff6b;
-	--glass: rgba(255,255,255,0.03);
-}
+<!-- Made by Bubbabaker2009 -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Shawn Bakers Portfolio</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/custom.css">
+	<link rel="stylesheet" href="assets/css/theme-cyber.css">
+	<link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/main.js" defer></script>
+	<script src="assets/js/reveal.js" defer></script>
+	<script src="assets/js/typewriter.js" defer></script>
+	<script src="assets/js/cmd-terminal.js" defer></script>
+		<script src="assets/js/waves.js" defer></script>
+	<script src="assets/js/skill-bars.js" defer></script>
+	<script src="assets/js/social-physics.js" defer></script>
+	<script src="assets/js/progress.js" defer></script>
+	<script src="assets/js/copy.js" defer></script>
+	<script src="assets/js/ripple.js" defer></script>
+	<script src="assets/js/boot.js" defer></script>
+	<script src="assets/js/boot-log.js" defer></script>
+</head>
+<body class="is-preload">
+	<div id="scroll-progress" aria-hidden="true"></div>
 
-/* Page background */
-body{
-	background: radial-gradient(1200px 600px at 10% 10%, rgba(42,70,110,0.12), transparent),
-							linear-gradient(180deg,var(--bg-1),var(--bg-0));
-	color:var(--text);
-}
+  <!-- Page Wrapper -->
+  <div id="page-wrapper">
 
-/* Panels and cards */
-.inner, .about-box, .cert, .social-deck .s-card{
-	background: var(--panel);
-	border-color: rgba(0,245,212,0.06);
-}
+    <!-- Header -->
+      <header id="header" class="alt">
+        <h1 id="logo"><a href="#">Shawn Bakers Portfolio</a></h1>
+        <nav>
+          <a href="#menu">Menu</a>
+        </nav>
+      </header>
 
-.about-box{box-shadow:0 10px 30px rgba(7,18,34,0.6), 0 0 24px rgba(155,107,255,0.02)}
+    <!-- Menu (keeps default panel behavior) -->
+      <nav id="menu">
+        <ul class="links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#certifications">Certifications</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
 
-/* Accent for links/buttons */
-a, .resume-btn, .copy-btn{ color:var(--accent); }
+	    <!-- Banner -->
+		    <section id="banner" class="reveal">
+				<div class="banner-bg" id="banner-bg">
+					<img src="assets/images/face1.jpg" alt="Shawn Baker" class="base-image">
+				</div>
 
-.resume-btn{ border-color: rgba(0,245,212,0.08); background:linear-gradient(180deg, rgba(0,245,212,0.03), transparent); }
+				<script src="assets/js/social-deck.js" defer></script>
 
-/* Neon headings */
-header.major h2, h3{ text-shadow:0 6px 18px rgba(0,245,212,0.06), 0 0 30px rgba(155,107,255,0.03); color:var(--text)}
+				<div class="inner">
+					<div class="banner-controls">
+						<div id="boot-log" class="boot-log" aria-hidden="true"></div>
+					</div>
+					<h2 class="banner-type">
+						<span class="type-line" id="type-line-1"></span>
+						<br>
+						<span class="type-line muted" id="type-line-2"></span>
+						<span class="type-cursor" id="type-cursor">▍</span>
+					</h2>
 
-/* Social cards glow */
-.social-deck .s-card{ box-shadow:0 14px 46px rgba(2,6,23,0.6); border:1px solid rgba(0,245,212,0.04)}
-.social-deck .s-card:hover{ box-shadow:0 28px 84px rgba(0,245,212,0.12), 0 6px 20px rgba(155,107,255,0.06); transform:translateY(-6px) scale(1.06) }
+				</div>
+			</section>
 
-/* Skill fill gradient using accents */
-.skill-fill{ background:linear-gradient(90deg,var(--accent),var(--accent-2)); box-shadow:0 8px 30px rgba(0,245,212,0.06) inset }
+    <!-- Main -->
+      <div id="main">
 
-/* Certifications */
-.cert{ border-radius:10px; transition:transform .28s ease, box-shadow .28s ease; }
-.cert:hover{ transform:translateY(-8px); box-shadow:0 24px 60px rgba(11,20,40,0.7), 0 0 38px rgba(0,245,212,0.06) }
+				<style>
+				/* Layout tweaks: avoid horizontal scroll and make About three columns */
+				html,body{box-sizing:border-box;overflow-x:hidden;margin:0;padding:0}
+				.about-section .inner{max-width:100%;padding:0 1rem}
+				.about-grid{display:grid;gap:1rem;margin:0 auto;width:100%}
+				.about-grid.two-cols{grid-template-columns:repeat(2,1fr)}
+				.about-grid.three-cols.full-width{grid-template-columns:repeat(3,1fr)}
+				.about-box{box-sizing:border-box;padding:1.25rem;background:var(--panel,#0f1720);border-left:6px solid var(--accent,#21b2a6);box-shadow:0 6px 18px rgba(0,0,0,0.35)}
+				.about-box h3{margin-top:0}
+				.traits{display:flex;gap:.5rem;flex-wrap:wrap;margin:0;padding:0}
+				.traits span{display:inline-block}
+				@media (max-width:1100px){.about-grid.two-cols{grid-template-columns:1fr}.about-grid.three-cols.full-width{grid-template-columns:1fr}}
 
-/* Toast */
-#toast{ background:linear-gradient(180deg, rgba(2,6,23,0.92), rgba(8,18,34,0.92)); border:1px solid rgba(0,245,212,0.06) }
+				/* Social deck styles */
+				/* Scroll reveal base (fade + slide up) */
+				.reveal{opacity:0;transform:translateY(30px);transition:opacity .6s ease, transform .6s ease}
+				.reveal.active{opacity:1;transform:translateY(0)}
+				.reveal[data-delay]{transition-delay:var(--delay,0s)}
 
-/* Terminal tweaks when embedded */
-#footer-terminal #cmd-terminal{ background: linear-gradient(180deg, rgba(3,7,15,0.85), rgba(2,6,23,0.85)); border:1px solid rgba(0,245,212,0.06); box-shadow:none }
-#footer-terminal #cmd-terminal #cmd-prompt{ color:var(--neon-green) }
-#footer-terminal #cmd-terminal .cmd-line{ color:var(--muted) }
+				/* Alternating slide-in for full sections (slide-left/right) */
+				section.reveal{ transform: translateY(18px) translateX(0); }
+				section.reveal:nth-of-type(odd){ transform: translateY(28px) translateX(-28px); }
+				section.reveal:nth-of-type(even){ transform: translateY(28px) translateX(28px); }
+				section.reveal.active{ transform: translateY(0) translateX(0); }
 
-/* Links and small UI elements */
-.btn, .resume-btn.small{ box-shadow:0 8px 24px rgba(0,0,0,0.55); }
+				/* Wave separator */
+				.section-wave{ position:relative; width:100%; height:72px; overflow:hidden; line-height:0; }
+				.section-wave svg{ width:120%; height:100%; display:block; transform:translateX(0); }
+				.section-wave .wave-fill{ opacity:0.9 }
+				.section-wave .wave-anim{ animation:waveShift 18s linear infinite; }
+				@keyframes waveShift{ 0%{ transform:translateX(0) } 50%{ transform:translateX(-8%) } 100%{ transform:translateX(0) } }
+				/* Subtle parallax effect for waves on scroll */
+				.section-wave[data-parallax="true"] svg{ will-change:transform }
 
-/* Header bar subtle grey background under menu */
-#header{ background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.00)); border-bottom:1px solid rgba(255,255,255,0.02); }
+				/* Typewriter */
+				.banner-type{font-weight:700;letter-spacing:0.2px}
+				.type-line{display:inline-block}
+				.type-cursor{display:inline-block;color:var(--accent,#21b2a6);margin-left:.35rem;opacity:1;transition:opacity .2s}
+				.type-line.muted{color:rgba(255,255,255,0.82);font-weight:600}
 
-/* Style the menu panel links and highlight the Home link */
-#menu .links{ padding: .6rem 0; }
-#menu .links a{ display:block; padding:.6rem 1rem; border-radius:8px; color:var(--text); }
-#menu .links a:hover{ background: rgba(200,200,200,0.06); color:var(--text); }
+				/* Neon / Glitch / UI polish */
+				@keyframes neon-flicker {
+					0%,100%{text-shadow:0 0 6px rgba(33,178,166,0.65),0 0 12px rgba(33,178,166,0.18)}
+					50%{text-shadow:0 0 10px rgba(33,178,166,0.9),0 0 30px rgba(108,240,215,0.12)}
+				}
+				@keyframes neon-glow {0%{box-shadow:0 6px 18px rgba(33,178,166,0.06)}50%{box-shadow:0 12px 36px rgba(33,178,166,0.12)}100%{box-shadow:0 6px 18px rgba(33,178,166,0.06)}}
+				@keyframes pulse {0%{transform:scale(1);opacity:.9}50%{transform:scale(1.03);opacity:1}100%{transform:scale(1);opacity:.9}}
+				@keyframes rippleAnim{from{transform:scale(0);opacity:.6}to{transform:scale(2.5);opacity:0}}
+				@keyframes blinkCursor{0%{opacity:1}50%{opacity:0}100%{opacity:1}}
+				
+				.banner-type{animation:neon-flicker 3.6s linear infinite}
+				#logo a{font-weight:800;letter-spacing:.4px;animation:neon-flicker 4s linear infinite}
+				.type-cursor.blink{animation:blinkCursor 1s steps(1,start) infinite}
+				
+				/* Banner controls: resume + boot log (low-opacity, slow) */
+				.banner-controls{position:absolute;left:1.25rem;bottom:1.1rem;display:flex;flex-direction:column;gap:.6rem;z-index:2;pointer-events:auto}
+				.resume-btn{background:rgba(33,178,166,0.06);color:var(--muted,#cfeee8);padding:.45rem .7rem;border-radius:8px;border:1px solid rgba(33,178,166,0.08);font-weight:700;opacity:.14;transition:opacity 1.8s ease, transform .28s}
+				.resume-btn:hover{opacity:.95;transform:translateY(-3px)}
+				.boot-log{font-family:monospace;color:rgba(200,255,244,0.9);font-size:13px;opacity:.14;line-height:1.35}
+				.boot-log .line{opacity:0;transform:translateY(6px);transition:opacity .36s ease, transform .36s ease}
+				.boot-log .line.visible{opacity:1;transform:none}
+				
+				/* Skill meters neon */
+				.skill-fill{width:0%;height:100%;background:linear-gradient(90deg,#21b2a6,#6cf0d7);transition:width 1s cubic-bezier(.2,.9,.3,1);box-shadow:0 6px 18px rgba(33,178,166,0.12),inset 0 -6px 18px rgba(0,0,0,0.15)}
+				.skill-meter{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:10px;position:relative;overflow:hidden}
+				.skill-percent{right:10px}
+				
+				/* Social card hover glow */
+				.social-deck .s-card:hover{box-shadow:0 24px 60px rgba(33,178,166,0.16);filter:drop-shadow(0 16px 40px rgba(33,178,166,0.12));transform:var(--base-transform) rotateY(var(--tilt)) translateY(var(--ty)) scale(1.08)}
+				
+				/* Resume small variant */
+				.resume-btn.small{background:rgba(33,178,166,0.12);color:var(--muted,#cfeee8);padding:.28rem .55rem;border-radius:6px;border:1px solid rgba(33,178,166,0.12);font-weight:700;font-size:14px;opacity:.95;transition:transform .18s}
+				.resume-btn.small:hover{transform:translateY(-2px)}
+				.resume-btn.small.pulse{animation:pulse 2.2s ease-in-out infinite}
+				
+				/* Button ripple */
+				.btn, .copy-btn, .resume-btn.small{position:relative;overflow:hidden}
+				.ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,0.18);pointer-events:none;width:20px;height:20px;transform:scale(0);opacity:.6}
+				.ripple.animate{animation:rippleAnim .6s linear forwards}
 
-/* Give the Home menu item a muted grey panel behind it */
-#menu .links li:first-child a{ background: rgba(200,200,200,0.08); }
+				/* Skill meters */
+				.skills-list{margin-top:.6rem}
+				.skill{display:flex;align-items:center;gap:.6rem;margin:.55rem 0}
+				.skill-label{width:110px;font-weight:600}
+				.skill-meter{flex:1;background:rgba(255,255,255,0.04);height:18px;border-radius:10px;position:relative;overflow:hidden}
+				.skill-fill{width:0%;height:100%;background:linear-gradient(90deg,var(--accent,#21b2a6),#6cf0d7);transition:width 1s cubic-bezier(.2,.9,.3,1)}
+				.skill-percent{position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:12px;color:rgba(255,255,255,0.9);font-weight:700}
+
+				/* Certifications hover detail */
+				.cert{transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease}
+				.cert:hover{transform:translateY(-6px) scale(1.01);box-shadow:0 18px 40px rgba(2,6,23,0.7);border-color:rgba(33,178,166,0.12)}
+				.cert-thumb{transition:box-shadow .22s ease,border-radius .2s}
+				.cert.reveal{will-change:transform,opacity}
+
+				/* Social deck subtle hover/tilt */
+				.social-deck .s-card{transition:transform .22s cubic-bezier(.2,.9,.3,1), box-shadow .18s}
+				.social-deck .s-card.hovering{transform:translate(-50%,-50%) scale(1.04) translateZ(0)}
+
+				/* Progress bar */
+				#scroll-progress{position:fixed;left:0;top:0;height:3px;width:0;background:var(--accent,#21b2a6);z-index:9999;transition:width .12s linear}
+
+				/* Toast */
+				#toast{position:fixed;right:14px;bottom:22px;background:rgba(2,6,23,0.9);color:#fff;padding:.5rem 1rem;border-radius:6px;box-shadow:0 6px 24px rgba(0,0,0,0.6);opacity:0;transform:translateY(12px);transition:opacity .25s, transform .25s;z-index:10010}
+				#toast.show{opacity:1;transform:translateY(0)}
+
+				.copy-btn{margin-left:.5rem;padding:.18rem .45rem;border-radius:6px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.03);color:inherit;font-size:12px;cursor:pointer}
+				.copy-btn:hover{background:rgba(255,255,255,0.06)}
+				.resume-btn.small{background:rgba(33,178,166,0.12);color:var(--muted,#cfeee8);padding:.28rem .55rem;border-radius:6px;border:1px solid rgba(33,178,166,0.12);font-weight:700;font-size:14px;opacity:.95;transition:transform .18s}
+				.resume-btn.small:hover{transform:translateY(-2px)}
+				
+				.social-deck-wrap{display:flex;flex-direction:column;align-items:center;gap:1rem;padding:2rem 1rem}
+				.social-deck{position:relative;width:100%;height:420px;max-width:980px;margin:0 auto;pointer-events:auto}
+				.social-deck .s-card{position:absolute;left:50%;top:50%;width:180px;height:280px;background-size:cover;background-position:center center;border-radius:10px;box-shadow:0 10px 36px rgba(2,6,23,.65);transition:transform .36s cubic-bezier(.2,.9,.3,1),box-shadow .22s;cursor:pointer;overflow:hidden;border:2px solid rgba(255,255,255,0.04);backface-visibility:visible;transform-style:preserve-3d;opacity:1;--tilt:0deg;--ty:0px;--scale:1;--base-transform:translate(-50%,-50%)}
+				.social-deck .s-card{transform: var(--base-transform) rotateY(var(--tilt)) translateY(var(--ty)) scale(var(--scale))}
+				.social-deck .s-card *{backface-visibility:visible}
+				.social-deck .s-card:hover{opacity:1}
+				.social-deck .s-card .label{position:absolute;left:50%;bottom:-8px;transform:translateX(-50%);background:rgba(3,7,15,.86);color:#fff;padding:.25rem .5rem;border-radius:4px;font-size:12px;opacity:0;transition:opacity .18s .05s, bottom .18s}
+				.social-deck .s-card:hover{box-shadow:0 14px 34px rgba(2,6,23,.75);--scale:1.06}
+				.social-deck .s-card.hovering{--scale:1.04}
+				.social-deck .s-card:hover .label{opacity:1;bottom:8px}
+				@media (max-width:1200px){.social-deck{height:380px}.social-deck .s-card{width:160px;height:250px}}
+				@media (max-width:900px){.social-deck{height:300px}.social-deck .s-card{width:130px;height:200px}}
+				@media (max-width:600px){.social-deck{height:220px}.social-deck .s-card{width:100px;height:150px;border-radius:8px}}
+
+				/* Initial stacked horizontal layout for social cards */
+				.social-deck .s-card:nth-child(1){--base-transform:translate(-50%,-50%) translateX(-320px) rotate(-18deg)}
+				.social-deck .s-card:nth-child(2){--base-transform:translate(-50%,-50%) translateX(-200px) rotate(-10deg)}
+				.social-deck .s-card:nth-child(3){--base-transform:translate(-50%,-50%) translateX(-90px) rotate(-4deg)}
+				.social-deck .s-card:nth-child(4){--base-transform:translate(-50%,-50%) translateX(0px) rotate(0deg)}
+				.social-deck .s-card:nth-child(5){--base-transform:translate(-50%,-50%) translateX(90px) rotate(4deg)}
+				.social-deck .s-card:nth-child(6){--base-transform:translate(-50%,-50%) translateX(200px) rotate(10deg)}
+				.social-deck .s-card:nth-child(7){--base-transform:translate(-50%,-50%) translateX(320px) rotate(18deg)}
+
+				@media (max-width:1200px){
+					.social-deck .s-card:nth-child(1){--base-transform:translate(-50%,-50%) translateX(-260px) rotate(-16deg)}
+					.social-deck .s-card:nth-child(2){--base-transform:translate(-50%,-50%) translateX(-160px) rotate(-9deg)}
+					.social-deck .s-card:nth-child(3){--base-transform:translate(-50%,-50%) translateX(-70px) rotate(-3deg)}
+					.social-deck .s-card:nth-child(4){--base-transform:translate(-50%,-50%) translateX(0px) rotate(0deg)}
+					.social-deck .s-card:nth-child(5){--base-transform:translate(-50%,-50%) translateX(70px) rotate(3deg)}
+					.social-deck .s-card:nth-child(6){--base-transform:translate(-50%,-50%) translateX(160px) rotate(9deg)}
+					.social-deck .s-card:nth-child(7){--base-transform:translate(-50%,-50%) translateX(260px) rotate(16deg)}
+				}
+
+				@media (max-width:900px){
+					.social-deck .s-card:nth-child(1){--base-transform:translate(-50%,-50%) translateX(-180px) rotate(-12deg)}
+					.social-deck .s-card:nth-child(2){--base-transform:translate(-50%,-50%) translateX(-110px) rotate(-7deg)}
+					.social-deck .s-card:nth-child(3){--base-transform:translate(-50%,-50%) translateX(-55px) rotate(-3deg)}
+					.social-deck .s-card:nth-child(4){--base-transform:translate(-50%,-50%) translateX(0px) rotate(0deg)}
+					.social-deck .s-card:nth-child(5){--base-transform:translate(-50%,-50%) translateX(55px) rotate(3deg)}
+					.social-deck .s-card:nth-child(6){--base-transform:translate(-50%,-50%) translateX(110px) rotate(7deg)}
+					.social-deck .s-card:nth-child(7){--base-transform:translate(-50%,-50%) translateX(180px) rotate(12deg)}
+				}
+				</style>
+
+			<!-- Socials Deck -->
+			<section id="socials" class="main special reveal">
+				<div class="inner">
+					<header class="major"><h2>Socials</h2></header>
+					<div class="social-deck-wrap">
+						<div id="social-deck" class="social-deck" aria-label="Social images deck">
+							<div class="s-card reveal" data-name="Meta" style="background-image:url('assets/images/socials/3.jpg')"></div>
+							<div class="s-card reveal" data-name="Instagram" data-url="https://www.instagram.com/bubbabaker09?igsh=MWdzczB3MTBsMjMzMQ==" style="background-image:url('assets/images/socials/1.jpg')"></div>
+							<div class="s-card reveal" data-name="Facebook" data-url="https://www.facebook.com/share/1LbM3Fc1TZ/" style="background-image:url('assets/images/socials/2.jpg')"></div>
+							<div class="s-card reveal" data-name="LinkedIn" data-url="https://www.linkedin.com/in/bubba-the-mellongod-ba22743a6/" style="background-image:url('assets/images/socials/4.jpg')"></div>
+							<div class="s-card reveal" data-name="YouTube" style="background-image:url('assets/images/socials/5.jpg')"></div>
+							<div class="s-card reveal" data-name="Twitter" style="background-image:url('assets/images/socials/6.jpg')"></div>
+							<div class="s-card reveal" data-name="Pinterest" style="background-image:url('assets/images/socials/7.jpg')"></div>
+						</div>
+							<div class="about-box reveal" style="max-width:360px;margin:auto;text-align:left;">
+								<h3>Shawn's on social media</h3>
+								<p>Find me on the platforms below:</p>
+								<ul>
+									<li><a href="https://www.linkedin.com/in/bubba-the-mellongod-ba22743a6/" target="_blank">LinkedIn</a></li>
+									<li><a href="https://www.facebook.com/share/1LbM3Fc1TZ/" target="_blank">Facebook</a></li>
+									<li><a href="https://www.instagram.com/bubbabaker09?igsh=MWdzczB3MTBsMjMzMQ==" target="_blank">Instagram</a></li>
+								</ul>
+							</div>
+					</div>
+				</div>
+			</section>
+
+			  <!-- About -->
+			  <section id="about" class="main special about-section reveal">
+			<div class="inner">
+							<header class="major">
+								<h2>About</h2>
+							</header>
+
+							<!-- Three boxes layout (Profile | Skills+Education | Contact) -->
+							<div class="about-grid three-cols full-width">
+								<div class="about-box reveal">
+									<h3>Profile</h3>
+									<p><strong>Shawn Baker</strong></p>
+									<p>Age: 16</p>
+									<p><strong>Experience:</strong></p>
+									<p>2022 - present: Mowing yards to earn income.</p>
+									<p>Summer 2025: Worked at Meyersdale High School — IT department.</p>
+									<!-- traits removed -->
+								</div>
+
+								<div class="about-box reveal">
+									<h3>Skills / Education</h3>
+									<div class="skills-list reveal">
+										<strong>Skills:</strong>
+										<div class="skill">
+											<div class="skill-label">HTML</div>
+											<div class="skill-meter" aria-hidden="true">
+												<div class="skill-fill" data-value="55"></div>
+												<div class="skill-percent">55%</div>
+											</div>
+										</div>
+										<div class="skill">
+											<div class="skill-label">Python</div>
+											<div class="skill-meter" aria-hidden="true">
+												<div class="skill-fill" data-value="52"></div>
+												<div class="skill-percent">52%</div>
+											</div>
+										</div>
+										<div class="skill">
+											<div class="skill-label">Lua</div>
+											<div class="skill-meter" aria-hidden="true">
+												<div class="skill-fill" data-value="21"></div>
+												<div class="skill-percent">21%</div>
+											</div>
+										</div>
+										<div class="skill">
+											<div class="skill-label">JavaScript</div>
+											<div class="skill-meter" aria-hidden="true">
+												<div class="skill-fill" data-value="48"></div>
+												<div class="skill-percent">48%</div>
+											</div>
+										</div>
+									</div>
+									<!-- traits removed -->
+									<p><strong>Education:</strong></p>
+									<p>Meyersdale Area School District (2024–2027)</p>
+									<p>Somerset County Technology Center (2023–2027)</p>
+								</div>
+
+								<div class="about-box reveal">
+									<h3>Contact</h3>
+									<p><strong>Phone:</strong> 814-483-9612 <button class="copy-btn" data-copy="814-483-9612">Copy</button></p>
+									<p><strong>Email:</strong> <a href="mailto:Bubbabaker2009@gmail.com">Bubbabaker2009@gmail.com</a> <button class="copy-btn" data-copy="Bubbabaker2009@gmail.com">Copy</button></p>
+									<p><strong>Address:</strong> 312 Myers Avenue, Meyersdale, PA 15552 <button class="copy-btn" data-copy="312 Myers Avenue, Meyersdale, PA 15552">Copy</button></p>
+									<p style="margin-top:.6rem"><a class="resume-btn small" href="assets/resume.pdf" download>Download Resume</a></p>
+								</div>
+							</div>
+			</div>
+		  </section>
+
+				<!-- Certifications -->
+					<section id="certifications" class="main special reveal">
+            <div class="inner">
+              <header class="major">
+                <h2>Certifications</h2>
+              </header>
+							<div class="cert-grid">
+								<article class="cert reveal">
+									<a href="assets/images/certifications/Pc%20pro.pdf" target="_blank">
+										<h3>PC Pro</h3>
+										<div class="cert-thumb"><img src="assets/images/certifications/Pc%20pro.jpg" alt="PC Pro" onerror="this.style.display='none'; this.parentNode.classList.add('no-thumb')"></div>
+									</a>
+								</article>
+								<article class="cert reveal">
+									<a href="assets/images/certifications/First%20Aid%20-%20Medical%20Emergencies.pdf" target="_blank">
+										<h3>First Aid - Medical Emergencies</h3>
+										<div class="cert-thumb"><img src="assets/images/certifications/First%20Aid%20-%20Medical%20Emergencies.jpg" alt="First Aid - Medical" onerror="this.style.display='none'; this.parentNode.classList.add('no-thumb')"></div>
+									</a>
+								</article>
+								<article class="cert reveal">
+									<a href="assets/images/certifications/First%20Aid%20-%20Mental%20Wellness.pdf" target="_blank">
+										<h3>First Aid - Mental Wellness</h3>
+										<div class="cert-thumb"><img src="assets/images/certifications/First%20Aid%20-%20Mental%20Wellness.jpg" alt="First Aid - Mental" onerror="this.style.display='none'; this.parentNode.classList.add('no-thumb')"></div>
+									</a>
+								</article>
+								<article class="cert reveal">
+									<a href="assets/images/certifications/Critical%20Thinking.pdf" target="_blank">
+										<h3>Critical Thinking</h3>
+										<div class="cert-thumb"><img src="assets/images/certifications/Critical%20Thinking.jpg" alt="Critical Thinking" onerror="this.style.display='none'; this.parentNode.classList.add('no-thumb')"></div>
+									</a>
+								</article>
+								<article class="cert reveal">
+									<a href="assets/images/certifications/Time%20Management.pdf" target="_blank">
+										<h3>Time Management</h3>
+										<div class="cert-thumb"><img src="assets/images/certifications/Time%20Management.jpg" alt="Time Management" onerror="this.style.display='none'; this.parentNode.classList.add('no-thumb')"></div>
+									</a>
+								</article>
+								<article class="cert reveal">
+									<a href="assets/images/certifications/Ergonomics.pdf" target="_blank">
+										<h3>Ergonomics</h3>
+										<div class="cert-thumb"><img src="assets/images/certifications/Ergonomics.jpg" alt="Ergonomics" onerror="this.style.display='none'; this.parentNode.classList.add('no-thumb')"></div>
+									</a>
+								</article>
+								<article class="cert reveal">
+									<a href="assets/images/certifications/Communication%20Skills.pdf" target="_blank">
+										<h3>Communication Skills</h3>
+										<div class="cert-thumb"><img src="assets/images/certifications/Communication%20Skills.jpg" alt="Communication Skills" onerror="this.style.display='none'; this.parentNode.classList.add('no-thumb')"></div>
+									</a>
+								</article>
+								<article class="cert reveal">
+									<a href="assets/images/certifications/OSHA%2010-Hour%20General%20Industry.pdf" target="_blank">
+										<h3>OSHA 10-Hour General Industry</h3>
+										<div class="cert-thumb"><img src="assets/images/certifications/OSHA%2010-Hour%20General%20Industry.jpg" alt="OSHA 10-Hour" onerror="this.style.display='none'; this.parentNode.classList.add('no-thumb')"></div>
+									</a>
+								</article>
+								<article class="cert reveal">
+									<a href="assets/images/certifications/Cybersecurity%20Essentials%20for%20Work.pdf" target="_blank">
+										<h3>Cybersecurity Essentials for Work</h3>
+										<div class="cert-thumb"><img src="assets/images/certifications/Cybersecurity%20Essentials%20for%20Work.jpg" alt="Cybersecurity Essentials" onerror="this.style.display='none'; this.parentNode.classList.add('no-thumb')"></div>
+									</a>
+								</article>
+
+								<!-- Bambu Lab Academy certificates -->
+								<article class="cert">
+									<a href="assets/images/certifications/Bambu%20Lab%20Academy%20Certificate%20of%20Completion%20Bambu%20Studio.pdf" target="_blank">
+										<h3>Bambu Lab Academy — Bambu Studio</h3>
+										<div class="cert-thumb"><img src="assets/images/certifications/Bambu%20Lab%20Academy%20Certificate%20of%20Completion%20Bambu%20Studio.png" alt="Bambu Studio" onerror="this.style.display='none'; this.parentNode.classList.add('no-thumb')"></div>
+									</a>
+								</article>
+
+								<article class="cert">
+									<a href="assets/images/certifications/Bambu%20Lab%20Academy%20Certificate%20of%20Completion%20Bambu%20Handy.pdf" target="_blank">
+										<h3>Bambu Lab Academy — Bambu Handy</h3>
+										<div class="cert-thumb"><img src="assets/images/certifications/Bambu%20Lab%20Academy%20Certificate%20of%20Completion%20Bambu%20Handy.png" alt="Bambu Handy" onerror="this.style.display='none'; this.parentNode.classList.add('no-thumb')"></div>
+									</a>
+								</article>
+
+								<article class="cert">
+									<a href="assets/images/certifications/Bambu%20Lab%20Academy%20Certificate%20of%20Completion.pdf" target="_blank">
+										<h3>Bambu Lab Academy — Certificate of Completion</h3>
+										<div class="cert-thumb"><img src="assets/images/certifications/Bambu%20Lab%20Academy%20Certificate%20of%20Completion.png" alt="Bambu Lab Academy" onerror="this.style.display='none'; this.parentNode.classList.add('no-thumb')"></div>
+									</a>
+								</article>
+							</div>
+            </div>
+          </section>
+
+      </div>
 
 
-/* Subtle animated neon pulse for accent elements */
-.pulse-accent{ animation: glowPulse 2.8s ease-in-out infinite }
-@keyframes glowPulse{ 0%{ box-shadow:0 6px 18px rgba(0,245,212,0.04)}50%{ box-shadow:0 16px 48px rgba(0,245,212,0.08)}100%{ box-shadow:0 6px 18px rgba(0,245,212,0.04)} }
+					<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<div id="footer-terminal" aria-live="polite"></div>
+						</div>
+					</footer>
 
-/* Reduced motion fallback */
+					<div id="toast" aria-hidden="true"></div>
 
-@media (prefers-reduced-motion: reduce){ *{ transition:none!important; animation:none!important } }
+						<style>
+						/* Scrollbar styling to blend in (WebKit + Firefox) */
+						:root{--scroll-thumb:rgba(11,18,32,0.45);}
+						html{scrollbar-width:thin;scrollbar-color:var(--scroll-thumb) transparent}
+						::-webkit-scrollbar{width:10px;height:10px}
+						::-webkit-scrollbar-track{background:transparent}
+						::-webkit-scrollbar-thumb{background:var(--scroll-thumb);border-radius:8px;border:2px solid transparent;background-clip:content-box}
+						::-webkit-scrollbar-thumb:hover{background:rgba(11,18,32,0.6)}
+						</style>
 
-/* Focus outlines and high-contrast helpers */
-:focus{ outline: none }
-a:focus, .btn:focus, .resume-btn:focus, .copy-btn:focus, .s-card:focus, #cmd-input:focus{
-	box-shadow: 0 0 0 3px rgba(0,245,212,0.14), 0 8px 28px rgba(2,6,23,0.6);
-	border-radius:6px;
-}
+				</div>
 
-/* Visible focus for keyboard users */
-*:focus-visible{ outline: 2px solid var(--accent-2); outline-offset:3px }
+					<!-- Inline: relocate the injected terminal into the footer container when present -->
+					<script>
+					document.addEventListener('DOMContentLoaded', function(){
+					  const host = document.getElementById('footer-terminal');
+					  const panel = document.getElementById('cmd-terminal');
+					  if(host && panel){
+					    // adjust styles to behave as an embedded footer block
+					    panel.style.position = 'relative';
+					    panel.style.right = 'auto';
+					    panel.style.bottom = 'auto';
+					    panel.style.width = '100%';
+					    panel.style.maxWidth = '100%';
+						panel.style.height = '420px';
+					    panel.style.borderRadius = '6px';
+					    panel.style.boxShadow = 'none';
+					    panel.style.margin = '0';
+					    panel.style.fontSize = '13px';
+					    host.appendChild(panel);
 
-/* Improve contrast for small text */
-.boot-log, .skill-percent, .cert h3{ color: var(--muted); opacity:0.95 }
+					    // Make social cards keyboard accessible and add enter/space activation
+					    const cards = document.querySelectorAll('.social-deck .s-card');
+					    cards.forEach(c=>{
+					      const name = c.dataset.name || c.getAttribute('title') || 'social card';
+					      c.setAttribute('tabindex', '0');
+					      c.setAttribute('role', 'button');
+					      c.setAttribute('aria-label', name);
+					      // open on Enter/Space
+					      c.addEventListener('keydown', (ev)=>{
+					        if(ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); c.click(); }
+					      });
+					    });
+					  }
+					});
+					</script>
 
-/* Section background gradients and semi-transparent panels */
-section{ position:relative; z-index:1 }
-section::before{
-	content:''; position:absolute; inset:0; z-index:-1; pointer-events:none;
-	background: linear-gradient(180deg, rgba(3,8,20,0.02), rgba(3,8,20,0.04));
-}
-
-/* Subtle alternating gradients between sections */
-section:nth-of-type(odd)::before{ background: linear-gradient(180deg, rgba(7,18,34,0.02), rgba(7,18,34,0.04)); }
-section:nth-of-type(even)::before{ background: linear-gradient(180deg, rgba(12,24,44,0.03), rgba(8,18,34,0.05)); }
-
-/* Semi-transparent panel look */
-.inner, .about-box, .cert, .social-deck .s-card{
-	background: linear-gradient(180deg, rgba(6,10,18,0.55), rgba(6,10,18,0.42));
-	backdrop-filter: blur(6px) saturate(120%);
-	-webkit-backdrop-filter: blur(6px) saturate(120%);
-	border:1px solid rgba(255,255,255,0.04);
-}
-
-/* Add a soft divider and lift for panels */
-.about-box, .cert{ box-shadow: 0 8px 28px rgba(2,8,20,0.6); border-radius:10px }
-
-/* Slight gradient separators between major sections */
-hr.section-sep{ border:0; height:1px; margin:2.2rem 0; background:linear-gradient(90deg, rgba(155,107,255,0.06), rgba(0,245,212,0.06)); }
-
-
-/* Light-blue pulse on hover for primary interactive elements */
-@keyframes pulseBlue {
-	0% { box-shadow: 0 0 0 0 rgba(122,215,255,0.0); }
-	50% { box-shadow: 0 0 24px 6px rgba(122,215,255,0.12); }
-	100% { box-shadow: 0 0 0 0 rgba(122,215,255,0.0); }
-}
-
-.btn:hover, .copy-btn:hover, .resume-btn:hover, .resume-btn.small:hover {
-	transform: translateY(-3px);
-	filter: saturate(1.05) brightness(1.02);
-	box-shadow: 0 10px 30px rgba(122,215,255,0.06), 0 0 0 3px rgba(122,215,255,0.03);
-	animation: pulseBlue 1.8s ease-in-out infinite;
-}
-
-/* Keep focus visible and consistent with hover state */
-.btn:focus, .copy-btn:focus, .resume-btn:focus, .resume-btn.small:focus {
-	outline: 2px solid rgba(122,215,255,0.18);
-	outline-offset: 3px;
-}
-
-/* Mobile / small-screen adjustments */
-@media (max-width: 900px){
-	/* Stack about grid to single column */
-	.about-grid.three-cols.full-width, .about-grid.two-cols{ grid-template-columns: 1fr !important; }
-
-	/* Social deck: reduce height and card sizes, make tappable */
-	.social-deck{ height:260px !important; max-width:100%; }
-	.social-deck .s-card{ width:110px !important; height:160px !important; border-radius:8px !important; }
-	.social-deck .s-card:nth-child(1){ --base-transform: translate(-50%,-50%) translateX(-140px) rotate(-12deg) }
-	.social-deck .s-card:nth-child(2){ --base-transform: translate(-50%,-50%) translateX(-90px) rotate(-8deg) }
-	.social-deck .s-card:nth-child(3){ --base-transform: translate(-50%,-50%) translateX(-45px) rotate(-4deg) }
-	.social-deck .s-card:nth-child(4){ --base-transform: translate(-50%,-50%) translateX(0px) rotate(0deg) }
-	.social-deck .s-card:nth-child(5){ --base-transform: translate(-50%,-50%) translateX(45px) rotate(4deg) }
-	.social-deck .s-card:nth-child(6){ --base-transform: translate(-50%,-50%) translateX(90px) rotate(8deg) }
-	.social-deck .s-card:nth-child(7){ --base-transform: translate(-50%,-50%) translateX(140px) rotate(12deg) }
-
-	/* Wave separators smaller on mobile */
-	.section-wave{ height:44px; }
-	.section-wave svg{ width:140%; }
-
-	/* Reduce padding, increase tappable areas */
-	.inner{ padding: .9rem !important; }
-	.btn, .copy-btn, .resume-btn.small{ padding: .6rem .9rem; font-size:15px }
-
-	/* Terminal: embed full-width and increase height slightly for mobile */
-	#footer-terminal #cmd-terminal{ height:280px !important; font-size:14px !important }
-	#cmd-terminal{ width:100% !important; right:0 !important; left:0 !important }
-
-	/* Hide decorative shadows for performance */
-	.social-deck .s-card, .about-box, .cert{ box-shadow:none }
-	/* Certificates: use a two-column grid on small screens for denser layout */
-	.cert-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:0.9rem; }
-	.cert{ padding:0.8rem; }
-	.cert-thumb img{ width:100%; height:auto; border-radius:8px; display:block; }
-}
-
-@media (max-width: 480px){
-	/* Tighten further for very small screens */
-	.social-deck{ height:200px }
-	.social-deck .s-card{ width:90px; height:130px }
-	.section-wave{ height:34px }
-	#footer-terminal #cmd-terminal{ height:240px }
-	#made-by-badge{ display:none }
-	/* Certificates: compact list with thumbnail to the left */
-	.cert-grid{ display:block }
-	.cert{ display:flex; gap:0.6rem; align-items:flex-start; padding:0.6rem; }
-	.cert-thumb{ flex:0 0 90px; }
-	.cert-thumb img{ width:90px; height:auto; object-fit:cover; border-radius:6px }
-	.cert h3{ margin:0 0 0.35rem 0; font-size:15px }
-}
+					<!-- Made by badge overlay -->
+					<style>
+					  #made-by-badge{position:fixed;right:12px;bottom:12px;background:linear-gradient(90deg,rgba(0,245,212,0.06),rgba(155,107,255,0.04));color:var(--text,#dff7fb);padding:.45rem .65rem;border-radius:10px;font-weight:700;font-size:12px;backdrop-filter:blur(6px);z-index:120000;box-shadow:0 8px 30px rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.03)}
+					  #made-by-badge a{color:var(--accent);text-decoration:none}
+					</style>
+					<div id="made-by-badge" aria-hidden="false">Made by <strong>Bubbabaker2009</strong></div>
 
 
+			</body>
+			</html>
